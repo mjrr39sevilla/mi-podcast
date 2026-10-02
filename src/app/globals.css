@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+/*
+ * Design tokens — elegant editorial identity (FR-007).
+ * Warm ink/cream palette with amber accent; display serif + clean sans.
+ */
+:root {
+  --ink: #14110f;
+  --ink-soft: #1e1a17;
+  --ink-line: #322c27;
+  --paper: #f4eee3;
+  --paper-dim: #cfc6b8;
+  --muted: #8f8577;
+  --accent: #e3a559;
+  --accent-strong: #f0b96f;
+  --danger: #e07a5f;
+}
+
+@theme inline {
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-ink-line: var(--ink-line);
+  --color-paper: var(--paper);
+  --color-paper-dim: var(--paper-dim);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-accent-strong: var(--accent-strong);
+  --color-danger: var(--danger);
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+  --font-display: var(--font-display-serif), "Iowan Old Style", Georgia, serif;
+}
+
+/* Fluid display scale — readable from 320px up (FR-008) */
+:root {
+  --step-0: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+  --step-1: clamp(1.25rem, 1.15rem + 0.5vw, 1.5rem);
+  --step-2: clamp(1.6rem, 1.4rem + 1vw, 2.25rem);
+  --step-3: clamp(2.1rem, 1.7rem + 2vw, 3.5rem);
+  --step-4: clamp(2.7rem, 2rem + 3.4vw, 5rem);
+}
+
+body {
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--font-sans);
+  font-size: var(--step-0);
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+.display {
+  font-family: var(--font-display);
+  line-height: 1.08;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+}
+
+/* Visible, elegant focus ring for keyboard users (FR-009) */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--ink);
+}
+
+/* Fine hairline rule used across sections — signature editorial detail */
+.rule {
+  border: 0;
+  border-top: 1px solid var(--ink-line);
+}
